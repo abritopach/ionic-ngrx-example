@@ -1,14 +1,21 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Birthdays
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="showDetail()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-list inset>
+        <ion-item *ngFor="let birthday of birthdays | async" (click)="showDetail(birthday)">
+            <div item-left>{{ birthday.Name }}</div>
+            <div item-right>{{ birthday.Date | date:'yMMMMd' }}</div>
+        </ion-item>
+    </ion-list>
 </ion-content>
