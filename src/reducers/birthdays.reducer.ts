@@ -1,7 +1,9 @@
-import {Action} from '@ngrx/store';
+import {ActionReducer, Action} from '@ngrx/store';
 import {BirthdayActions} from '../actions/birthday.actions';
 
-let nextId = 0;
+import { Birthday } from '../models/birthday';
+
+//let nextId = 0;
 
 /*
 
@@ -17,6 +19,7 @@ let nextId = 0;
 */
 
 
+/*
 export function BirthdaysReducer(state = [], action: Action) {
     switch(action.type) {
         case BirthdayActions.ADD_BIRTHDAY:
@@ -27,6 +30,32 @@ export function BirthdaysReducer(state = [], action: Action) {
             });
         case BirthdayActions.DELETE_BIRTHDAY:
             return state.filter(birthday => birthday.id !== action.payload.id);
+        default:
+            return state;
+    };
+}
+*/
+
+export const BirthdaysReducer: ActionReducer<Birthday[]> = (state: Birthday[] = [], action: Action) => {
+    console.log(action.type);
+    switch(action.type) {
+        case BirthdayActions.LOAD_BIRTHDAYS_SUCCESS:
+            return action.payload;
+        case BirthdayActions.ADD_UPDATE_BIRTHDAY_SUCCESS:
+            var exists = state.find(birthday => birthday._id === action.payload._id);
+            console.log(exists);
+            if (exists) {
+                // UPDATE
+                return state.map(birthday => {
+                    return birthday._id === action.payload._id ? Object.assign({}, birthday, action.payload) : birthday;
+                });
+            }
+            else {
+                // ADD
+                return [...state, Object.assign({}, action.payload)];
+            }
+        case BirthdayActions.DELETE_BIRTHDAY_SUCCESS:
+            return state.filter(birthday => birthday._id !== action.payload);
         default:
             return state;
     };
