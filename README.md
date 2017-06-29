@@ -1,26 +1,51 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Ionic-ngrx-example
 
-## How to use this template
+Sample project that shows how ngrx can help you manage application state in your Ionic app.
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+Original source (Ashteya Biharisingh):
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+- https://gonehybrid.com/a-beginners-guide-to-using-ngrx-in-an-ionic-2-app-part-1/
+- https://gonehybrid.com/a-beginners-guide-to-using-ngrx-in-an-ionic-2-app-part-2/
 
-### With the Ionic CLI:
+* FrontEnd: Ionic App.
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+## Running
+
+Before you go through this example, you should have at least a basic understanding of Ionic concepts. You must also already have Ionic installed on your machine.
+
+* Test in localhost:
+
+To run it, cd into `ionic-ngrx-example` and run:
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+npm install
+ionic serve
 ```
 
-Then, to run it, cd into `myBlank` and run:
+* Test in Android: 
 
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+ionic cordova add platform android
+ionic cordova run android
 ```
 
-Substitute ios for android if not on a Mac.
+* Test in iOS: 
+
+```bash
+ionic cordova add platform ios
+ionic cordova run ios
+```
+
+
+## Requirements
+
+* [Node.js](http://nodejs.org/)
+* [Ionic Cordova](https://ionicframework.com/docs/intro/installation/)
+
+## License
+
+MIT License.
+
+Original work Copyright (c) Ashteya Biharisingh
+
 
