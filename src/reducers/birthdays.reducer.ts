@@ -57,6 +57,7 @@ export const BirthdaysReducer: ActionReducer<Birthday[]> = (state: Birthday[] = 
         case BirthdayActions.DELETE_BIRTHDAY_SUCCESS:
             return state.filter(birthday => birthday._id !== action.payload);
         default:
+            console.log(state);
             return state;
     };
 }

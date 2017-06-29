@@ -5,6 +5,11 @@ import { Birthday } from '../models/birthday';
 
 import * as PouchDB from 'pouchdb';
 
+/*
+    Service that will encapsulate the PouchDB calls. This service is responsible for storing and retrieving the data
+    from the database.
+*/
+
 @Injectable()
 export class BirthdayService {
     private db;
@@ -15,7 +20,6 @@ export class BirthdayService {
         return this.platform.ready()
             .then(() => {
                 this.db = new PouchDB('birthday', { adapter: 'websql' });
-                console.log(this.db);
             });
     }
 

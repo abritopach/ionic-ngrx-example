@@ -25,6 +25,7 @@ import { BirthdayService } from '../services/birthday.service';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     StoreModule.provideStore({ birthdays: BirthdaysReducer }),
+    // Update imports section run the BirthdayEffects when the application starts.
     EffectsModule.run(BirthdayEffects)
   ],
   bootstrap: [IonicApp],

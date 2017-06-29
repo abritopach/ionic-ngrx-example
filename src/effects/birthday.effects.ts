@@ -45,10 +45,14 @@ export class BirthdayEffects {
         .mergeMap(birthday => this.db.delete(birthday));
 
     allBirthdays$ = this.db.getAll()
-        .map(birthdays => this.birthdayActions.loadBirthdaysSuccess(birthdays));
+        .map(birthdays => {
+            console.log("allBirthdays$ called");
+            return this.birthdayActions.loadBirthdaysSuccess(birthdays)
+        });
 
     changedBirthdays$ = this.db.getChanges()
         .map(change => {
+            console.log("changedBirthdays$ called");
             if (change._deleted) {
                 return this.birthdayActions.deleteBirthdaySuccess(change._id);
             }
